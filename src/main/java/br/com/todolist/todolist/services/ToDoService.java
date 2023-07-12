@@ -2,6 +2,7 @@ package br.com.todolist.todolist.services;
 
 import java.util.List;
 
+import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,14 +40,6 @@ public class ToDoService {
     public ResponseEntity<?> edit(ToDo obj){
         if (action.existsById(obj.getId()) == false) {
             message.setMessage("Not found ID");
-            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
-        }
-        else if (obj.getDescription().equals("")) {
-            message.setMessage("Description cannot be empty!");
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-        }
-        else if (obj.getName().equals("")) {
-            message.setMessage("Nof found ID");
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
         else {
