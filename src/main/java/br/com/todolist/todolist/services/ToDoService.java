@@ -2,7 +2,6 @@ package br.com.todolist.todolist.services;
 
 import java.util.List;
 
-import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +53,7 @@ public class ToDoService {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
         else {
-            return new ResponseEntity<>(action.findById(id), HttpStatus.FOUND);
+            return new ResponseEntity<>(action.findById(id), HttpStatus.OK);
         }        
     }
 
