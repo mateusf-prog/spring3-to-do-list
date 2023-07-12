@@ -41,6 +41,14 @@ public class ToDoService {
             message.setMessage("Not found ID");
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
+        else if (obj.getName().equals("")) {
+            message.setMessage("Name cannot be empty!");
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
+        else if (obj.getDescription().equals("")) {
+            message.setMessage("Description cannot be empty!");
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
         else {
             action.save(obj);
             return new ResponseEntity<>(action.findById(obj.getId()), HttpStatus.OK);
