@@ -14,8 +14,8 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private String description;
     private String priority;
-    private String status;
 
     public long getId() {
         return id;
@@ -33,6 +33,14 @@ public class ToDo {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getPriority() {
         return priority;
     }
@@ -41,18 +49,8 @@ public class ToDo {
         this.priority = priority;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     @Override
     public String toString() {
-        return "ToDo id=" + id + "\nName=" + name + "\nPriority=" + priority + "\nStatus=" + status + "";
+        return "ToDo id=" + id + "\nName=" + name + "\nPriority=" + priority;
     }
-
-    
 }
