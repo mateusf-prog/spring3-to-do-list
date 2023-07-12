@@ -1,5 +1,7 @@
 package br.com.todolist.todolist.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,7 @@ public class ToDoService {
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
         else if (obj.getDescription().equals("")) {
-            message.setMessage("Desprition cannot be empty!");
+            message.setMessage("Description cannot be empty!");
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
         else {
@@ -35,14 +37,46 @@ public class ToDoService {
     }
 
     public ResponseEntity<?> edit(ToDo obj){
-        
+        if (action.existsById(obj.getId()) == false) {
+            message.setMessage("Not found ID");
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        else if (obj.getDescription().equals("")) {
+            message.setMessage("Description cannot be empty!");
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
+        else if (obj.getName().equals("")) {
+            message.setMessage("Nof found ID");
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        else {
+            action.save(obj);
+            return new ResponseEntity<>(action.findById(obj.getId()), HttpStatus.OK);
+        }
     }
 
-    public ResponseEntity<?>select(int id) {
-        
+    public ResponseEntity<?> selectById(long id) {
+        if (action.existsById(id) == false) {
+            message.setMessage("Not Found!");
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        else {
+            return new ResponseEntity<>(action.findById(id), HttpStatus.FOUND);
+        }        
     }
 
-    public ResponseEntity<?> remove(int id){
-        
+    public ResponseEntity<?> remove(long id){
+        if (action.existsById(id) == false) {
+            message.setMessage("Not Found!");
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else {
+            action.deleteById(id);
+            message.setMessage("Successfully remove!");
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        }
+    }
+
+    public ResponseEntity<List<ToDo>> selecAll() {
+        return new ResponseEntity<>(action.findAll(), HttpStatus.OK);
     }
 }
