@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.todolist.todolist.models.ToDo;
-import br.com.todolist.todolist.models.ToDoComponent;
+import br.com.todolist.todolist.model.ToDo;
+import br.com.todolist.todolist.model.ToDoComponent;
 import br.com.todolist.todolist.repositories.ToDoRepository;
 
 @Service

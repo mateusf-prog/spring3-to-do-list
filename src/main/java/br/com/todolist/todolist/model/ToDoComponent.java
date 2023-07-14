@@ -1,4 +1,4 @@
-package br.com.todolist.todolist.models;
+package br.com.todolist.todolist.model;
 
 import org.springframework.stereotype.Component;
 
