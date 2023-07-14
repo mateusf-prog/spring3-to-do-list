@@ -11,4 +11,6 @@ Uma aplicação simples de gerenciamento de tarefas(to-do-list) com uma API Rest
 * Spring Boot
 * Spring data JPA
 * MySQL
+* Maven
+  
 
