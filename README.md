@@ -9,7 +9,7 @@ Uma aplicação simples de gerenciamento de tarefas(to-do-list) com uma API Rest
 ## Tecnologias usadas
 
 * Spring Boot
-* Spring data JPA
+* Spring Data JPA
 * Spring MVC
 * MySQL
 * Maven
